@@ -10,7 +10,7 @@ const Home = () => {
                         <h1 className='hero-heading'>
                             Bridging
                             <br />
-                            <span className='framed'> Trust</span>
+                            <span className='framed'> Reputation</span>
                             <br /> with zk
                         </h1>
                     </div>
@@ -23,11 +23,22 @@ const Home = () => {
                     <div className='grid'>
                         <div className='box'></div>
                         <div className='box'></div>
+                        <div className='box'>
+                            {' '}
+                            <img
+                                src='https://photodune.img.customer.envatousercontent.com/files%2F314560249%2F11.jpg?w=200&h=200&fit=crop&crop=faces%2Cedges&fm=pjpg&q=40&s=57260cc3939347bcb6ab928ff069d873'
+                                alt='flamingo'
+                                width='150px'
+                                height='150px'
+                                className='flamingo'
+                            />
+                        </div>
                         <div className='box'></div>
                         <div className='box'></div>
                         <div className='box'></div>
-                        <div className='box'></div>
-                        <div className='box'></div>
+                        <div className='box'>
+                            <div className='long-rectangle'></div>
+                        </div>
                         <div className='box'></div>
                         <div className='box'></div>
                         <br />

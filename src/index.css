@@ -1,8 +1,8 @@
 :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-family: Raleway;
+    font-size: 18px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 600;
 
     /* color-scheme: light dark; */
     color: rgba(255, 255, 255, 0.87);
@@ -78,7 +78,7 @@ td {
     font-weight: inherit;
     font-style: inherit;
     font-size: 100%;
-    font-family: inherit;
+    /* font-family: inherit; */
     vertical-align: baseline;
 }
 /* remember to define focus styles! */
@@ -151,4 +151,9 @@ button:hover {
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+
+@font-face {
+    font-family: 'Fragile';
+    src: local('Fragile'), url(./assets/fragile.otf);
 }
