@@ -1,0 +1,44 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    background-color: white;
+    margin: 0em 2em 0em 2em;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin-top: 4em;
+}
+
+.hero-heading {
+    text-align: left;
+}
+.framed {
+    margin: 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: gold;
+    align-self: flex-start;
+}
+.box {
+    width: 150px;
+    height: 150px;
+    border-radius: 26px;
+    border: 1px solid black;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    grid-gap: 0rem;
+}

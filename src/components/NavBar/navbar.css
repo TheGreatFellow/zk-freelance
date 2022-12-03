@@ -1,0 +1,15 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 2em;
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: row;
+    column-gap: 4em;
+}
+.world-id {
+    /* margin-right: 4em; */
+}
