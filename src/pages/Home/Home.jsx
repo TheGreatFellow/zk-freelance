@@ -1,5 +1,5 @@
-import { WorldIDWidget } from '@worldcoin/id'
-import './home.css'
+import { WorldIDWidget } from "@worldcoin/id";
+import "./home.css";
 
 const Home = () => {
     return (
@@ -46,7 +46,23 @@ const Home = () => {
                 </div>
             </section>
         </div>
-    )
-}
+        <div className="hero-right-area">
+          <div className="grid">
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <br />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

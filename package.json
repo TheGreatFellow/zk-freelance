@@ -13,7 +13,10 @@
     "jose": "^4.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.4"
+    "react-router-dom": "^6.4.4",
+    "browser-image-compression": "^2.0.0",
+    "web3": "^1.8.1",
+    "web3.storage": "^4.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
