@@ -26,6 +26,7 @@ const ClientPage = ({ currentAccount }) => {
       const ogImageCID = await contract.methods
         .verifyProof("hash")
         .send({ from: currentAccount });
+      console.log(ogImageCID);
       return ogImageCID;
     } catch (error) {
       console.log(error);
@@ -69,6 +70,9 @@ const ClientPage = ({ currentAccount }) => {
           </div>
         </>
       )}
+      <button type="submit" className="gig" onClick={approve("hash")}>
+        Approve
+      </button>
     </div>
   );
 };
