@@ -6,14 +6,16 @@ import zkFreelanceAbi from "../../abi/zkFreelanceAbi.json";
 
 const FreelancerPage = ({ currentAccount }) => {
   const [image, setImage] = useState(null);
+  const [lowResImage, setLowResImage] = useState(null);
   const client = new Web3Storage({
-    token: "",
+    token:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDllZWM5NTBGRTZlOGM2RDQ4OEMyZWNiRjY1Mjk3OTUzMDZiNTk1MTgiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAwNjM1MzQ3NzAsIm5hbWUiOiJ6a0ZyZWVsYW5jZSJ9.9oun-UVXUoT1GAGIoY6uDGNVivVFJOZ5wuYCKSMzSqQ",
   });
 
   const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(
     zkFreelanceAbi,
-    "0xE4109736C51831Ce5daeCfcc5D94E8E57E57E843"
+    "0x3B0A799CB14b3eEE0e01F32E60cf3575d8345CB6"
   );
 
   const handleImageChange = (e) => {
@@ -26,23 +28,24 @@ const FreelancerPage = ({ currentAccount }) => {
       maxWidthOrHeight: 480,
       useWebWorker: true,
     });
-    return lowResImage;
+    setLowResImage(lowResImage);
   };
 
-  const uploadToIpfs = async (ogImage, lowResImage) => {
+  const uploadToIpfs = async (ogImage) => {
     try {
       const ogImageCID = await client.put([ogImage]);
-      const lowResImageCID = await client.put([lowResImage]);
-      console.log(ogImageCID, lowResImageCID);
+      //   const lowResImageCID = await client.put([lowResImage]);
+      //   console.log(ogImageCID, lowResImageCID);
+      return ogImageCID;
     } catch (error) {
       console.log(error);
     }
   };
 
-  const uploadProof = async (ogImageCID, lowResImageCID) => {
+  const uploadProof = async (ogImageCID) => {
     try {
       await contract.methods
-        .uploadProof(ogImageCID, lowResImageCID)
+        .uploadHash(ogImageCID, "hash")
         .send({ from: currentAccount });
     } catch (error) {
       console.log(error);
@@ -51,13 +54,15 @@ const FreelancerPage = ({ currentAccount }) => {
 
   return (
     <div>
-      {image && <img src={URL.createObjectURL(image)} height="400px" alt="" />}
-      {image && (
+      {lowResImage && (
+        <img src={URL.createObjectURL(image)} height="400px" alt="" />
+      )}
+      {lowResImage && (
         <button
           onClick={() => {
-            generateProof(image).then((lowResImage) => {
-              uploadToIpfs(image, lowResImage).then(() => {
-                uploadProof(image, lowResImage);
+            generateProof(image).then(() => {
+              uploadToIpfs(image).then((ogImageCID) => {
+                uploadProof(ogImageCID);
               });
             });
           }}
@@ -65,7 +70,7 @@ const FreelancerPage = ({ currentAccount }) => {
           Upload to FileCoin
         </button>
       )}
-      {!image && <input type="file" onChange={handleImageChange} />}
+      {!lowResImage && <input type="file" onChange={handleImageChange} />}
     </div>
   );
 };

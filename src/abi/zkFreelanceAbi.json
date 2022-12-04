@@ -15,33 +15,20 @@
       },
       {
         "internalType": "string",
-        "name": "lowResImageCid",
+        "name": "imageHash",
         "type": "string"
       }
     ],
-    "name": "uploadProof",
+    "name": "uploadHash",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "name": "Verification",
-    "type": "event"
-  },
-  {
     "inputs": [
       {
         "internalType": "string",
-        "name": "lowResImageCid",
+        "name": "imageHash",
         "type": "string"
       }
     ],
