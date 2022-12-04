@@ -47,20 +47,6 @@ const Home = () => {
                     </div>
                 </section>
             </div>
-            <div className='hero-right-area'>
-                <div className='grid'>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <div className='box'></div>
-                    <br />
-                </div>
-            </div>
         </>
     )
 }

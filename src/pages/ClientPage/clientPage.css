@@ -5,7 +5,7 @@
     font-size: 2rem;
     font-weight: 600;
     color: #000;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid #000;
 }
@@ -53,4 +53,24 @@
     font-weight: 600;
     color: #000;
     margin: 1rem;
+}
+
+.gig-container {
+    width: 60vw;
+    height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input {
+    max-width: 300px;
 }
