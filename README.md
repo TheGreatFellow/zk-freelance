@@ -1,5 +1,8 @@
 # zk-freelance
 
+Deployed on Valist: https://bafybeidjajjxnvazvdtfgxavj3y3tyric3y7agqxevfokoc5t34wuzwbmm.ipfs.gateway.valist.io/
+
+<br/>
 The major problem which both the clients and freelancers encounter is Lack of communication and collaboration over a  longer span of time.
 This is extremely needed in order to ensure transparency between both the parties.
 
