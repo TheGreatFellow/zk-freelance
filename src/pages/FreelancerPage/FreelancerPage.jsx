@@ -18,8 +18,11 @@ const FreelancerPage = ({ currentAccount }) => {
     "0x3B0A799CB14b3eEE0e01F32E60cf3575d8345CB6"
   );
 
-  const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+  const handleImageChange = async (e) => {
+    const img = e.target.files[0];
+    setImage(img);
+    const low = await generateProof(img);
+    setLowResImage(low);
   };
 
   const generateProof = async (ogImage) => {
@@ -28,14 +31,13 @@ const FreelancerPage = ({ currentAccount }) => {
       maxWidthOrHeight: 480,
       useWebWorker: true,
     });
-    setLowResImage(lowResImage);
+    return lowResImage;
   };
 
   const uploadToIpfs = async (ogImage) => {
+    console.log(ogImage);
     try {
       const ogImageCID = await client.put([ogImage]);
-      //   const lowResImageCID = await client.put([lowResImage]);
-      //   console.log(ogImageCID, lowResImageCID);
       return ogImageCID;
     } catch (error) {
       console.log(error);
@@ -45,7 +47,10 @@ const FreelancerPage = ({ currentAccount }) => {
   const uploadProof = async (ogImageCID) => {
     try {
       await contract.methods
-        .uploadHash(ogImageCID, "hash")
+        .uploadHash(
+          ogImageCID,
+          "d04b98f48e8f8bcc15c6ae5ac050801cd6dcfd428fb5f9e65c4e16e7807340fa"
+        )
         .send({ from: currentAccount });
     } catch (error) {
       console.log(error);
@@ -54,16 +59,16 @@ const FreelancerPage = ({ currentAccount }) => {
 
   return (
     <div>
+      {image && <img src={URL.createObjectURL(image)} height="400px" alt="" />}
       {lowResImage && (
-        <img src={URL.createObjectURL(image)} height="400px" alt="" />
+        <img src={URL.createObjectURL(lowResImage)} height="400px" alt="" />
       )}
       {lowResImage && (
         <button
           onClick={() => {
-            generateProof(image).then(() => {
-              uploadToIpfs(image).then((ogImageCID) => {
-                uploadProof(ogImageCID);
-              });
+            uploadToIpfs(image).then((ogImageCID) => {
+              console.log(ogImageCID);
+              uploadProof(ogImageCID);
             });
           }}
         >

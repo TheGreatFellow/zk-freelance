@@ -24,7 +24,9 @@ const ClientPage = ({ currentAccount }) => {
   const approve = async (hash) => {
     try {
       const ogImageCID = await contract.methods
-        .verifyProof("hash")
+        .verifyProof(
+          "d04b98f48e8f8bcc15c6ae5ac050801cd6dcfd428fb5f9e65c4e16e7807340fa"
+        )
         .send({ from: currentAccount });
       console.log(ogImageCID);
       return ogImageCID;
@@ -70,7 +72,13 @@ const ClientPage = ({ currentAccount }) => {
           </div>
         </>
       )}
-      <button type="submit" className="gig" onClick={approve("hash")}>
+      <button
+        type="submit"
+        className="gig"
+        onClick={approve(
+          "d04b98f48e8f8bcc15c6ae5ac050801cd6dcfd428fb5f9e65c4e16e7807340fa"
+        )}
+      >
         Approve
       </button>
     </div>

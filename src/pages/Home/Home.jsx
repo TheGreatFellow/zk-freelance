@@ -22,15 +22,17 @@ const Home = () => {
           <div className="hero-left-area">
             <div className="hero-heading-section">
               <h1 className="hero-heading">
-                Bridging
+                Establishing
                 <br />
                 <span className="framed"> Reputation</span>
-                <br /> with zk
+                <br />
+                and trust with zk
               </h1>
             </div>
             <div className="hero-subheading">
-              Tackling problems in freelancing through trustless zk and
-              reputation system
+              A decentralised and distributed platform for freelance community
+              based on zero knowledge transparency and authentication in cost
+              effective and resource friendly manner
             </div>
           </div>
           <div className="hero-right-area">
@@ -51,7 +53,11 @@ const Home = () => {
               <div className="box"></div>
               <div className="box"></div>
               <div className="box">
-                <div className="long-rectangle"></div>
+                <div className="long-rectangle">
+                  <span className="num"> 36% </span>of freelancers face the
+                  problem of late payments or no payments according to a survey
+                  by Freelancer Study 2021
+                </div>
               </div>
               <div className="box"></div>
               <div className="box"></div>
